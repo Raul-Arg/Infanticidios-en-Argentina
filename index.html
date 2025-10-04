@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aborto en Argentina - Concientización</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1544380907-39e8df9c60b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+
+        .counters-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .counter-card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1rem;
+            flex: 1;
+            min-width: 300px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .counter-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .counter-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #ff6b6b;
+        }
+
+        .counter-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+        }
+
+        .counter-description {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            color: #cccccc;
+        }
+
+        .comparison-section {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .comparison-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #4ecdc4;
+        }
+
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .city-card {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .city-card:hover {
+            transform: scale(1.05);
+        }
+
+        .city-name {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #4ecdc4;
+        }
+
+        .city-population {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            margin-bottom: 0.5rem;
+        }
+
+        .city-percentage {
+            font-size: 1.2rem;
+            color: #ffd166;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        .comparison-text {
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .percentage-summary {
+            background: rgba(30, 30, 30, 0.8);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .percentage-summary-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        .percentage-summary-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .info-section {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .info-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #4ecdc4;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding: 1.5rem;
+            text-align: center;
+            color: #cccccc;
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .counter-number {
+                font-size: 3rem;
+            }
+            
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ABORTO EN ARGENTINA</h1>
+            <p class="subtitle">Cada número cuenta. Cada vida importa.</p>
+        </header>
+
+        <div class="counters-container">
+            <div class="counter-card">
+                <h2 class="counter-title">ABORTOS ESTE AÑO</h2>
+                <div id="year-counter" class="counter-number">0</div>
+                <p class="counter-description">Cifra parcial actualizada en tiempo real</p>
+            </div>
+            
+            <div class="counter-card">
+                <h2 class="counter-title">TOTAL DESDE 2021</h2>
+                <div id="total-counter" class="counter-number">0</div>
+                <p class="counter-description">Acumulado desde la implementación de la ley</p>
+            </div>
+        </div>
+
+        <div class="comparison-section">
+            <h2 class="comparison-title">COMPARACIÓN CON POBLACIONES ARGENTINAS</h2>
+            <p class="comparison-text">
+                El total de <span id="total-comparison" class="highlight">0</span> intervenciones representa:
+            </p>
+            
+            <div class="cities-grid">
+                <div class="city-card">
+                    <div class="city-name">Salta</div>
+                    <div class="city-population">539.187 habitantes</div>
+                    <div class="city-percentage" id="salta-percentage">0% de la población</div>
+                </div>
+                <div class="city-card">
+                    <div class="city-name">Santa Fe</div>
+                    <div class="city-population">391.164 habitantes</div>
+                    <div class="city-percentage" id="santafe-percentage">0% de la población</div>
+                </div>
+                <div class="city-card">
+                    <div class="city-name">Corrientes</div>
+                    <div class="city-population">346.334 habitantes</div>
+                    <div class="city-percentage" id="corrientes-percentage">0% de la población</div>
+                </div>
+                <div class="city-card">
+                    <div class="city-name">San Miguel de Tucumán</div>
+                    <div class="city-population">548.866 habitantes</div>
+                    <div class="city-percentage" id="tucuman-percentage">0% de la población</div>
+                </div>
+            </div>
+
+            <div class="percentage-summary">
+                <h3 class="percentage-summary-title">IMPACTO COMBINADO</h3>
+                <p class="percentage-summary-text">
+                    El total de abortos equivale al <span id="combined-percentage" class="highlight">0%</span> 
+                    de la población combinada de estas cuatro ciudades (<span id="combined-population">1.825.551</span> habitantes).
+                </p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2 class="info-title">INFORMACIÓN SOBRE LOS DATOS</h2>
+            <p>Los cálculos se basan en el promedio anual de 78.000 intervenciones desde la implementación de la Ley 27.610 de Interrupción Voluntaria del Embarazo en 2021.</p>
+            <p>La cifra se actualiza en tiempo real calculando la tasa por minuto basada en este promedio anual.</p>
+            <p>Las comparaciones con ciudades utilizan datos del último censo nacional argentino.</p>
+        </div>
+
+        <footer>
+            <p>Página de concientización - Los datos reflejan la realidad estadística desde 2021</p>
+        </footer>
+    </div>
+
+    <script>
+        // Configuración
+        const abortionsPerMinute = 0.15; // 78,000 / 365 / 24 / 60 ≈ 0.15
+        const startDate = new Date('2021-01-01T00:00:00'); // Fecha de implementación de la ley
+        const initialTotal = 314492; // Total desde 2021 hasta finales de 2024
+
+        // Datos de población de ciudades
+        const cities = {
+            salta: 539187,
+            santafe: 391164,
+            corrientes: 346334,
+            tucuman: 548866
+        };
+
+        // Calcular población combinada
+        const combinedPopulation = cities.salta + cities.santafe + cities.corrientes + cities.tucuman;
+
+        // Elementos del DOM
+        const yearCounter = document.getElementById('year-counter');
+        const totalCounter = document.getElementById('total-counter');
+        const totalComparison = document.getElementById('total-comparison');
+        const combinedPercentageElement = document.getElementById('combined-percentage');
+        const combinedPopulationElement = document.getElementById('combined-population');
+
+        // Elementos para porcentajes de ciudades
+        const saltaPercentage = document.getElementById('salta-percentage');
+        const santafePercentage = document.getElementById('santafe-percentage');
+        const corrientesPercentage = document.getElementById('corrientes-percentage');
+        const tucumanPercentage = document.getElementById('tucuman-percentage');
+
+        function updateCounter() {
+            const now = new Date();
+            
+            // Calcular minutos transcurridos desde el inicio de la ley
+            const totalMinutes = (now - startDate) / (1000 * 60);
+            
+            // Calcular total desde 2021
+            const calculatedTotal = Math.floor(totalMinutes * abortionsPerMinute);
+            
+            // Calcular para el año actual (desde el 1 de enero)
+            const startOfThisYear = new Date(now.getFullYear(), 0, 1);
+            const minutesThisYear = (now - startOfThisYear) / (1000 * 60);
+            const calculatedThisYear = Math.floor(minutesThisYear * abortionsPerMinute);
+            
+            // Actualizar los contadores en la página
+            yearCounter.textContent = calculatedThisYear.toLocaleString('es-AR');
+            totalCounter.textContent = calculatedTotal.toLocaleString('es-AR');
+            totalComparison.textContent = calculatedTotal.toLocaleString('es-AR');
+            
+            // Actualizar porcentajes
+            updatePercentages(calculatedTotal);
+        }
+
+        function updatePercentages(totalAbortions) {
+            // Calcular porcentajes individuales
+            const saltaPercent = ((totalAbortions / cities.salta) * 100).toFixed(1);
+            const santafePercent = ((totalAbortions / cities.santafe) * 100).toFixed(1);
+            const corrientesPercent = ((totalAbortions / cities.corrientes) * 100).toFixed(1);
+            const tucumanPercent = ((totalAbortions / cities.tucuman) * 100).toFixed(1);
+            
+            // Calcular porcentaje combinado
+            const combinedPercent = ((totalAbortions / combinedPopulation) * 100).toFixed(1);
+            
+            // Actualizar elementos del DOM
+            saltaPercentage.textContent = `${saltaPercent}% de la población`;
+            santafePercentage.textContent = `${santafePercent}% de la población`;
+            corrientesPercentage.textContent = `${corrientesPercent}% de la población`;
+            tucumanPercentage.textContent = `${tucumanPercent}% de la población`;
+            combinedPercentageElement.textContent = `${combinedPercent}%`;
+            combinedPopulationElement.textContent = combinedPopulation.toLocaleString('es-AR');
+        }
+
+        // Actualizar inmediatamente y luego cada segundo
+        updateCounter();
+        setInterval(updateCounter, 1000);
+    </script>
+</body>
+</html>
